@@ -243,6 +243,71 @@ function Cube(len) {
 
             this.state[R][3] = store[0]
             this.state[F][5] = store[1]
+        } else if (move == 'U+') {
+            // CORNERS
+            store = [this.state[U][0], this.state[L][0], this.state[B][2]]
+            this.state[U][0] = this.state[U][6]
+            this.state[L][0] = this.state[F][0]
+            this.state[B][2] = this.state[L][2]
+
+            this.state[U][6] = this.state[U][8]
+            this.state[F][0] = this.state[R][0]
+            this.state[L][2] = this.state[F][2]
+
+            this.state[U][8] = this.state[U][2]
+            this.state[R][0] = this.state[B][0]
+            this.state[F][2] = this.state[R][2]
+
+            this.state[U][2] = store[0]
+            this.state[B][0] = store[1]
+            this.state[R][2] = store[2]
+
+            // EDGES
+            store = [this.state[U][1], this.state[B][1]]
+            this.state[U][1] = this.state[U][3]
+            this.state[B][1] = this.state[L][1]
+
+            this.state[U][3] = this.state[U][7]
+            this.state[L][1] = this.state[F][1]
+            
+            this.state[U][7] = this.state[U][5]
+            this.state[F][1] = this.state[R][1]
+
+            this.state[U][5] = store[0]
+            this.state[R][1] = store[1]
+        } else if (move == 'U-') {
+            // CORNERS
+            store = [this.state[U][0], this.state[L][0], this.state[B][2]]
+            this.state[U][0] = this.state[U][2]
+            this.state[L][0] = this.state[B][0]
+            this.state[B][2] = this.state[R][2]
+
+            this.state[U][2] = this.state[U][8]
+            this.state[B][0] = this.state[R][0]
+            this.state[R][2] = this.state[F][2]
+
+            this.state[U][8] = this.state[U][6]
+            this.state[R][0] = this.state[F][0]
+            this.state[F][2] = this.state[L][2]
+
+            this.state[U][6] = store[0]
+            this.state[F][0] = store[1]
+            this.state[L][2] = store[2]
+
+            // EDGES
+
+            store = [this.state[U][1], this.state[B][1]]
+            this.state[U][1] = this.state[U][5]
+            this.state[B][1] = this.state[R][1]
+
+            this.state[U][5] = this.state[U][7]
+            this.state[R][1] = this.state[F][1]
+
+            this.state[U][7] = this.state[U][3]
+            this.state[F][1] = this.state[L][1]
+
+            this.state[U][3] = store[0]
+            this.state[L][1] = store[1]
         }
     }
 }

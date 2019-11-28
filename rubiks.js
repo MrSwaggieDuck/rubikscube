@@ -22,6 +22,12 @@ window.addEventListener('keydown', (e) => {
         } else {
             Cube.move('R-');
         }
+    } else if (e.keyCode == 85) {
+        if (!e.shiftKey) {
+            Cube.move('U+')
+        } else {
+            Cube.move('U-')
+        }
     }
 
 })
